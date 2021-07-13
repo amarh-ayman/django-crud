@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block content%}
+<h1>Snack list :</h1>
+{% if not object_list %}
+<h2>EMPTY</h2>
+{% else %}
+{% for snack in object_list %}
+<h3><a href="{% url 'snack_detail' snack.pk %}">{{ snack.title }}</a></h3>
+{% endfor %}
+{% endif %}
+
+<a href="{% url 'snack_create' %}"><button>ADD</button></a>
+{% endblock content%}

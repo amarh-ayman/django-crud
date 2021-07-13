@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+
+{% block content%}
+
+<h2>Title: {{snack.title}} </h2>
+<h2>Purchaser: {{snack.purchaser}} </h2>
+<h2>Description: {{snack.description}} </h2>
+
+<a href="{% url 'snack_update' snack.pk%}"><button>Update</button></a>
+
+<form action="{% url 'snack_delete' snack.id %}" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Delete">
+
+</form>
+
+{% endblock content%}
